@@ -1,0 +1,47 @@
+//JAVA SOLUTION
+
+class Solution {
+    public boolean searchMatrix(int[][] arr, int target) {
+       
+        
+        int n=arr.length;
+        int m=arr[0].length;
+
+        int stRow=0,enRow=n-1,midRow;
+
+        while (stRow<=enRow) {
+
+            midRow=(stRow+enRow)/2;
+
+            if(target==arr[midRow][m-1])
+            return true;
+
+            else if(target>arr[midRow][m-1])
+            stRow=midRow+1;
+            else
+            {
+                int stCol=0,enCol=m-1,midCol;
+
+                while (stCol<=enCol) {
+                    midCol=(stCol+enCol)/2;
+
+                    if(target==arr[midRow][midCol])
+                    return true;
+
+                    else if(target>arr[midRow][midCol])
+                    stCol=midCol+1;
+
+                    else
+                    enCol=midCol-1;
+                    
+                }
+
+                enRow=midRow-1;
+            }
+            
+        }
+
+
+        return false;
+    }
+}
