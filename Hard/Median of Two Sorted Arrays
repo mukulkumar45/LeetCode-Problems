@@ -1,0 +1,37 @@
+//C++ Solution//
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int n1=nums1.size();
+        int n2=nums2.size();
+        int n=n1+n2;
+        int arr[n];
+        int i;
+        double ans;
+
+        for(i = 0;i<n1;i++)
+        {
+            arr[i] = nums1[i];
+        }
+        int a = i;
+        for(i = 0;i<n2;i++)
+        {
+            arr[a] = nums2[i];
+            a++;
+        }
+        sort(arr,arr+n);
+        if(n%2 == 0)
+        {
+            int mid1 = n/2;
+            int mid2 = (n/2)+1;
+            ans = (arr[mid1-1] + arr[mid2-1])/2.00;
+        }
+        else
+        {
+            int mid = n/2;
+            ans = arr[mid];
+        }
+        return ans;
+    }
+};
