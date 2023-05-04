@@ -1,0 +1,37 @@
+class Solution {
+    static String reverse(String str)
+    {
+        String revans = "";
+        for(int j = str.length()-1;j>=0;j--)
+        {
+            revans+=str.charAt(j);
+        }
+        return revans;
+    }
+    static String  reverseWords(String str)
+    {
+        int n = str.length();
+        int i = n-1;
+        String ans = "";
+        while(i>=0)
+        {
+            while(i>=0 &&  str.charAt(i) == ' ')
+            {
+                i--;
+            }
+
+            String word = "";
+            while(i>=0 && str.charAt(i) != ' ')
+            { 
+                word+=str.charAt(i);
+                i--;
+            }
+
+            ans+=reverse(word);
+
+            if(!word.isEmpty())
+            ans+=" ";
+        }
+        return ans.substring(0, ans.length()-1);
+    }
+}
