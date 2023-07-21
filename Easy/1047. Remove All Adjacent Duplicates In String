@@ -17,3 +17,34 @@ public:
         return ans;
     }
 };
+
+
+Using Stacks //////////////////////////////////////////////
+
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        stack<char> str;
+
+        for(int i = 0;i<s.length();i++){
+            char ch = s[i];
+            if(!str.empty() && str.top() == ch){
+                
+                    str.pop();
+                }
+                else{
+                    str.push(ch);
+                }
+            }
+        string ans;
+        while(!str.empty()){
+            ans += str.top();
+            str.pop();
+        }
+        reverse(ans.begin(),ans.end());
+
+        return ans;   
+        }
+        
+    
+};
